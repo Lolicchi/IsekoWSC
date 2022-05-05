@@ -137,10 +137,7 @@ export class IsekoWSC extends WebSocket {
     }
 
     this.setPresence = activity => {
-      this.send(
-        JSON.stringify({
-          op: 3, // presence update
-          d: {
+      const d = {
             activities: activity.activities.map(a => ({
               name: a.name,
               type: a.type,
@@ -163,6 +160,11 @@ export class IsekoWSC extends WebSocket {
             status: activity.status,
             afk: false
           }
+      console.log(d)
+      this.send(
+        JSON.stringify({
+          op: 3, // presence update
+          d: d
         })
       )
     }
