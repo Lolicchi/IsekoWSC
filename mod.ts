@@ -146,6 +146,7 @@ export class IsekoWSC extends WebSocket {
               url: a.url,
               details: a.details,
               state: a.state,
+              application_id: a.applicationId,
               party: a.party,
               timestamps: a.timestamps,
               assets: {
