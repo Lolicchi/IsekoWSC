@@ -147,6 +147,7 @@ export class IsekoWSC extends WebSocket {
               application_id: a.applicationId,
               party: a.party,
               timestamps: a.timestamps,
+              emoji: a.emoji,
               assets: {
                 large_image: a.assets?.largeImageId,
                 large_text: a.assets?.largeImageText,
