@@ -161,7 +161,7 @@ export class IsekoWSC extends WebSocket {
             status: activity.status,
             afk: false
           }
-      console.log(d)
+//       console.log(d)
       this.send(
         JSON.stringify({
           op: 3, // presence update
