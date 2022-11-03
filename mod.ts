@@ -1,4 +1,4 @@
-console.log('hoi')
+console.log('poi')
 export class IsekoWSC extends WebSocket {
   // heartbeatInterval!: number
   // sessionId!: string
@@ -58,6 +58,8 @@ export class IsekoWSC extends WebSocket {
   joinVoice: (guildId: string, channelId: string) => void
 
   constructor(wscOptions: { token: string; onReady?: () => void }) {
+    this.token = token
+    
     super('wss://gateway.discord.gg/?v=9&encoding=json')
 
     this.onopen = () => {
@@ -99,8 +101,8 @@ export class IsekoWSC extends WebSocket {
       Deno.exit()
     }
 
-    this.onclose = code => {
-      console.log('Closed ::', code)
+    this.onclose = info => {
+      console.log('Closed ::', info.code, this.token)
       Deno.exit()
     }
 
