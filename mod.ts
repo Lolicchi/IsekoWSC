@@ -57,10 +57,10 @@ export class IsekoWSC extends WebSocket {
   }) => void
   joinVoice: (guildId: string, channelId: string) => void
 
-  constructor(wscOptions: { token: string; onReady?: () => void }) {
-    this.token = token
-    
+  constructor(wscOptions: { token: string; onReady?: () => void }) {    
     super('wss://gateway.discord.gg/?v=9&encoding=json')
+    
+    this.token = token
 
     this.onopen = () => {
       console.log('Connected to gateway.')
