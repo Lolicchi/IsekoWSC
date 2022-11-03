@@ -60,7 +60,7 @@ export class IsekoWSC extends WebSocket {
   constructor(wscOptions: { token: string; onReady?: () => void }) {    
     super('wss://gateway.discord.gg/?v=9&encoding=json')
     
-    this.token = token
+    this.token = wscOptions.token
 
     this.onopen = () => {
       console.log('Connected to gateway.')
