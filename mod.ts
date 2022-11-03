@@ -98,12 +98,12 @@ export class IsekoWSC extends WebSocket {
 
     this.onerror = err => {
       console.log('Err ::', err)
-      Deno.exit()
+//       Deno.exit()
     }
 
     this.onclose = info => {
       console.log('Closed ::', info.code, this.token)
-      Deno.exit()
+//       Deno.exit()
     }
 
     this.identify = (token = wscOptions.token, intents = 0) => {
