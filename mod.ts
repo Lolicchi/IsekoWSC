@@ -1,4 +1,5 @@
-console.log('bababooey')
+console.log('test')
+
 export class IsekoWSC extends WebSocket {
   // heartbeatInterval!: number
   // sessionId!: string
