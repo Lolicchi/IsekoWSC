@@ -1,4 +1,4 @@
-console.log('test')
+console.log('tests')
 
 export class IsekoWSC extends WebSocket {
   // heartbeatInterval!: number
@@ -109,6 +109,7 @@ export class IsekoWSC extends WebSocket {
 
     this.identify = (token = wscOptions.token, intents = 0) => {
       const i = () => {
+        try {
         this.send(
           JSON.stringify({
             op: 2,
@@ -123,6 +124,7 @@ export class IsekoWSC extends WebSocket {
             }
           })
         )//.catch(console.log)
+        } catch (e) {console.error(e)}
       }
 
       if (this.readyState == 1) return i()
@@ -135,7 +137,9 @@ export class IsekoWSC extends WebSocket {
       // this.heartbeatInterval = ms
       console.log(`Sending heartbeat, heartbeat_interval: ${ms} ms.`)
       setInterval(() => {
+        try {
         this.send(JSON.stringify({ op: 1, d: null }))//.catch(console.log)
+        } catch (e) {console.error(e)}
       }, ms)
     }
 
@@ -165,15 +169,19 @@ export class IsekoWSC extends WebSocket {
             afk: false
           }
 //       console.log(d)
+      
+      try {
       this.send(
         JSON.stringify({
           op: 3, // presence update
           d: d
         })
       )//.catch(console.log)
+      } catch (e) {console.error(e)}
     }
 
     this.joinVoice = (guildId, channelId) => {
+      try {
       this.send(
         JSON.stringify({
           op: 4, // voice state update
@@ -185,6 +193,7 @@ export class IsekoWSC extends WebSocket {
           }
         })
       )//.catch(console.log)
+      } catch (e) {console.error(e)}
       console.log('Successfully joined voicechannel.')
     }
   }
