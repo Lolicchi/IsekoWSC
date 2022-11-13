@@ -1,4 +1,4 @@
-console.log('poti')
+console.log('bababooey')
 export class IsekoWSC extends WebSocket {
   // heartbeatInterval!: number
   // sessionId!: string
@@ -121,7 +121,7 @@ export class IsekoWSC extends WebSocket {
               }
             }
           })
-        )
+        ).catch(console.log)
       }
 
       if (this.readyState == 1) return i()
@@ -134,7 +134,7 @@ export class IsekoWSC extends WebSocket {
       // this.heartbeatInterval = ms
       console.log(`Sending heartbeat, heartbeat_interval: ${ms} ms.`)
       setInterval(() => {
-        this.send(JSON.stringify({ op: 1, d: null }))
+        this.send(JSON.stringify({ op: 1, d: null })).catch(console.log)
       }, ms)
     }
 
@@ -169,7 +169,7 @@ export class IsekoWSC extends WebSocket {
           op: 3, // presence update
           d: d
         })
-      )
+      ).catch(console.log)
     }
 
     this.joinVoice = (guildId, channelId) => {
@@ -183,7 +183,7 @@ export class IsekoWSC extends WebSocket {
             self_deaf: false
           }
         })
-      )
+      ).catch(console.log)
       console.log('Successfully joined voicechannel.')
     }
   }
